@@ -13,7 +13,7 @@ import Home from "../../pages/Home/Home";
 // import AskQuestion from "../../pages/AskQuestion/AskQuestion";
 // import Quran from "../../pages/Quran/Quran";
 // import Hadith from "../../pages/Hadith/Hadith";
-// import Scholars from "../../pages/Scholars/Scholars";
+import Scholars from "../../pages/Scholars/ScholarsDirectory";
 // import Books from "../../pages/Books/Books";
 // import About from "../../pages/About/About";
 // import NotFound from "../../pages/NotFound/NotFound";
@@ -42,7 +42,7 @@ const AppRouter = () => {
 
         {/* <Route path="/hadith" element={<Hadith />} /> */}
 
-        {/* <Route path="/scholars" element={<Scholars />} /> */}
+        <Route path="/scholars" element={<Scholars />} />
 
         {/* <Route path="/books" element={<Books />} /> */}
 
