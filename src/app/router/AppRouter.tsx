@@ -6,14 +6,14 @@ import Layout from "../../layout/Layout";
 
 // Pages
 import Home from "../../pages/Home/Home";
-// import Login from "../../pages/Login/Login";
-// import Register from "../../pages/Register/Register";
+import Login from "../../pages/Auth/Login";
 import Questions from "../../pages/Questions/Questions";
 // import QuestionDetails from "../../pages/QuestionDetails/QuestionDetails";
 // import AskQuestion from "../../pages/AskQuestion/AskQuestion";
-// import Quran from "../../pages/Quran/Quran";
+import Quran from "../../pages/Quran/Quran";
 // import Hadith from "../../pages/Hadith/Hadith";
 import Scholars from "../../pages/Scholars/ScholarsDirectory";
+import Signup from "../../pages/Auth/Signup";
 // import Books from "../../pages/Books/Books";
 // import About from "../../pages/About/About";
 // import NotFound from "../../pages/NotFound/NotFound";
@@ -28,9 +28,9 @@ const AppRouter = () => {
 
         {/* Uncomment these as you create the pages */}
 
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/login" element={<Login />} />
 
-        {/* <Route path="/register" element={<Register />} /> */}
+        <Route path="/signup" element={<Signup />} />
 
         <Route path="/qa" element={<Questions />} />
 
@@ -38,7 +38,7 @@ const AppRouter = () => {
 
         {/* <Route path="/ask" element={<AskQuestion />} /> */}
 
-        {/* <Route path="/quran" element={<Quran />} /> */}
+        <Route path="/quran" element={<Quran />} />
 
         {/* <Route path="/hadith" element={<Hadith />} /> */}
 

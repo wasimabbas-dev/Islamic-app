@@ -1,26 +1,72 @@
-import { Link } from "react-router-dom";
+// src/layout/Navbar.tsx
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { navLinks } from "../constants/Navigation";
-// import logo from "../assets/logo.png";
-// import { Search } from "lucide-react";
+import {
+  Menu,
+  X,
+  Search,
+  LogIn,
+  UserPlus,
+  LogOut,
+  User,
+  ChevronDown,
+} from "lucide-react";
 
 const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("currentUser");
+    if (userData) {
+      const parsedUser = JSON.parse(userData);
+      setUser(parsedUser);
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    setIsAuthenticated(false);
+    setUser(null);
+    setIsDropdownOpen(false);
+    setIsMenuOpen(false);
+    navigate("/");
+  };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   return (
-    <nav className="bg-white shadow-sm">
-      <div className="mx-auto flex h-20 max-w-7xl items-center px-8">
+    <nav className="bg-white shadow-sm sticky top-0 z-50">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-8">
         {/* ================= Logo ================= */}
         <div className="flex items-center">
-          <Link to="/" className="text-3xl font-bold text-slate-800">
+          <Link
+            to="/"
+            className="text-2xl sm:text-3xl font-bold text-slate-800"
+          >
             Darul Huda
           </Link>
         </div>
 
-        {/* ================= Navigation Links ================= */}
-        <div className="ml-16 flex items-center gap-8 text-sm font-medium text-gray-700">
+        {/* ================= Desktop Navigation ================= */}
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-gray-700">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className="transition-colors duration-200 hover:text-amber-600"
+              className={`transition-colors duration-200 hover:text-emerald-600 ${
+                isActive(link.path)
+                  ? "text-emerald-600 border-b-2 border-emerald-600 pb-1"
+                  : ""
+              }`}
             >
               {link.title}
             </Link>
@@ -28,78 +74,147 @@ const Navbar = () => {
         </div>
 
         {/* ================= Right Side ================= */}
-        <div className="ml-auto flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           {/* Search */}
           <Link
             to="/search"
-            className="rounded-full border border-gray-200 px-4 py-2 transition duration-200 hover:bg-gray-100"
+            className="flex items-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm transition duration-200 hover:bg-gray-50"
           >
-            Search
-            {/* <Search size={18} /> */}
+            <Search size={18} />
+            <span>Search</span>
           </Link>
 
-          {/* Login */}
-          <Link
-            to="/login"
-            className="rounded-xl border border-gray-200 px-6 py-2 font-medium transition duration-200 hover:bg-gray-50"
-          >
-            Login
-          </Link>
+          {isAuthenticated ? (
+            // ================= Logged In User =================
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2 transition duration-200 hover:bg-gray-50"
+              >
+                <User size={18} className="text-emerald-600" />
+                <span className="font-medium text-gray-700">
+                  {user?.fullName?.split(" ")[0] || "User"}
+                </span>
+                <ChevronDown size={16} className="text-gray-400" />
+              </button>
 
-          {/* Sign Up */}
-          <Link
-            to="/signup"
-            className="rounded-xl bg-violet-600 px-6 py-2 font-medium text-white transition duration-200 hover:bg-violet-700"
-          >
-            Sign Up
-          </Link>
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                  <div className="px-4 py-3 border-b border-gray-100">
+                    <p className="text-sm font-medium text-gray-900">
+                      {user?.fullName}
+                    </p>
+                    <p className="text-xs text-gray-500">{user?.email}</p>
+                  </div>
+                  <Link
+                    to="/profile"
+                    className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <User size={16} />
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="flex w-full items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                  >
+                    <LogOut size={16} />
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            // ================= Not Logged In =================
+            <>
+              <Link
+                to="/login"
+                className="rounded-xl border border-gray-200 px-6 py-2 font-medium transition duration-200 hover:bg-gray-50"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="rounded-xl bg-emerald-600 px-6 py-2 font-medium text-white transition duration-200 hover:bg-emerald-700"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
+
+        {/* ================= Mobile Menu Button ================= */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* ================= Mobile Menu ================= */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4">
+          <div className="flex flex-col space-y-3">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`px-4 py-2 rounded-lg transition-colors ${
+                  isActive(link.path)
+                    ? "bg-emerald-50 text-emerald-600 font-medium"
+                    : "text-gray-700 hover:bg-gray-50"
+                }`}
+              >
+                {link.title}
+              </Link>
+            ))}
+
+            <div className="border-t border-gray-100 pt-3">
+              {isAuthenticated ? (
+                <>
+                  <div className="px-4 py-2">
+                    <p className="text-sm font-medium text-gray-900">
+                      {user?.fullName}
+                    </p>
+                    <p className="text-xs text-gray-500">{user?.email}</p>
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className="flex w-full items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                  >
+                    <LogOut size={16} />
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                  >
+                    <LogIn size={16} />
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2 text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                  >
+                    <UserPlus size={16} />
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
-
-// import { navLinks } from "../constants/Navigation";
-// import { Link } from "react-router-dom";
-// // import Search from "../components/common/Search/Search";
-// // import logo from "../assets/logo.png";
-
-// const Navbar = () => {
-//   return (
-//     <nav className="border-b bg-white shadow-sm">
-//       <div className="flex gap-6 bg-amber-200 p-4 text-lg font-semibold text-gray-700">
-//         <div className="flex items-center gap-2">
-//           <Link to="/" className="text-xl font-bold">
-//             Darul Huda
-//           </Link>
-//         </div>
-
-//         {/* used for navigation links */}
-//         {navLinks.map((link) => (
-//           <Link key={link.path} to={link.path}>
-//             {link.title}
-//           </Link>
-//         ))}
-
-//         {/* <div className="flex items-center gap-4"> */}
-//         <Link
-//           to="/Search"
-//           className="rounded-bl-lg border-amber-900/100 px-4 py-2"
-//         >
-//           Search
-//         </Link>
-
-//         <Link to="/login" className="rounded-lg border px-4 py-2">
-//           Login
-//         </Link>
-//         <Link to="/signup" className="rounded-lg border px-4 py-2">
-//           Sign Up
-//         </Link>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;

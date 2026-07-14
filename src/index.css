@@ -1,1 +1,47 @@
+
+/* ✅ @import MUST be at the VERY TOP */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&display=swap');
+
 @import "tailwindcss";
+/* ✅ Then all other CSS comes after
+@tailwind base;
+@tailwind components; */
+/* @tailwind utilities; */
+
+.font-arabic {
+    font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #10b981;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #059669;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+    background: #34d399;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #6ee7b7;
+}
