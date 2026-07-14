@@ -8,7 +8,7 @@ import Layout from "../../layout/Layout";
 import Home from "../../pages/Home/Home";
 // import Login from "../../pages/Login/Login";
 // import Register from "../../pages/Register/Register";
-// import Questions from "../../pages/Questions/Questions";
+import Questions from "../../pages/Questions/Questions";
 // import QuestionDetails from "../../pages/QuestionDetails/QuestionDetails";
 // import AskQuestion from "../../pages/AskQuestion/AskQuestion";
 // import Quran from "../../pages/Quran/Quran";
@@ -32,7 +32,7 @@ const AppRouter = () => {
 
         {/* <Route path="/register" element={<Register />} /> */}
 
-        {/* <Route path="/questions" element={<Questions />} /> */}
+        <Route path="/qa" element={<Questions />} />
 
         {/* <Route path="/questions/:id" element={<QuestionDetails />} /> */}
 
