@@ -6,7 +6,7 @@ import {
   ReaderToolbar,
   SearchBar,
   Loading,
-} from "../../components/quran/Index";
+} from "../../types/Index";
 import {
   mockSurahs,
   mockAyahsForSurah1,
@@ -98,13 +98,13 @@ const Quran: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-50/50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-b from-violet-50/50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {viewMode === "list" ? (
           <>
             <div className="mb-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/30 mb-4">
-                <BookOpen className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-violet-100 dark:bg-violet-900/30 mb-4">
+                <BookOpen className="w-8 h-8 text-violet-600 dark:text-violet-400" />
               </div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
                 The Holy Quran

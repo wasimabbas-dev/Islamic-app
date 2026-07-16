@@ -24,8 +24,8 @@ const AyahCard: React.FC<AyahCardProps> = ({
   return (
     <div className="group relative p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200">
       <div className="flex items-start gap-3">
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mt-1">
-          <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center mt-1">
+          <span className="text-sm font-semibold text-violet-600 dark:text-violet-400">
             {ayah.numberInSurah}
           </span>
         </div>
@@ -60,7 +60,7 @@ const AyahCard: React.FC<AyahCardProps> = ({
           title="Bookmark"
         >
           <Bookmark
-            className={`w-4 h-4 ${isBookmarked ? "fill-emerald-500 text-emerald-500" : "text-gray-500 dark:text-gray-400"}`}
+            className={`w-4 h-4 ${isBookmarked ? "fill-violet-500 text-violet-500" : "text-gray-500 dark:text-gray-400"}`}
           />
         </button>
         <button

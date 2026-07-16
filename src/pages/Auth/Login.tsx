@@ -64,12 +64,12 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-white to-violet-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/30 mb-4">
-            <LogIn className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-violet-100 dark:bg-violet-900/30 mb-4">
+            <LogIn className="w-10 h-10 text-violet-600 dark:text-violet-400" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
             Welcome Back
@@ -106,7 +106,7 @@ const Login: React.FC = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
+                className="w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
                 placeholder="your@email.com"
                 required
               />
@@ -127,7 +127,7 @@ const Login: React.FC = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full pl-10 pr-12 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
+                className="w-full pl-10 pr-12 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
                 placeholder="Enter your password"
                 required
               />
@@ -153,7 +153,7 @@ const Login: React.FC = () => {
                 name="rememberMe"
                 checked={formData.rememberMe}
                 onChange={handleChange}
-                className="w-4 h-4 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-emerald-500 text-emerald-600 bg-gray-50 dark:bg-gray-700"
+                className="w-4 h-4 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-violet-500 text-violet-600 bg-gray-50 dark:bg-gray-700"
               />
               <label className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                 Remember me
@@ -161,7 +161,7 @@ const Login: React.FC = () => {
             </div>
             <a
               href="#"
-              className="text-sm text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium"
+              className="text-sm text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium"
             >
               Forgot password?
             </a>
@@ -171,7 +171,7 @@ const Login: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20"
+            className="w-full py-3 px-4 bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-700 hover:to-violet-800 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 shadow-lg shadow-violet-600/20"
           >
             {loading ? (
               <>
@@ -192,7 +192,7 @@ const Login: React.FC = () => {
               Don't have an account?{" "}
               <Link
                 to="/signup"
-                className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium"
+                className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium"
               >
                 Create one now
               </Link>

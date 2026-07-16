@@ -27,7 +27,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 
       <div className="mb-3 h-2 w-full rounded-full bg-gray-200">
         <div
-          className="h-2 rounded-full bg-green-600"
+          className="h-2 rounded-full bg-violet-600"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -55,7 +55,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         ) : (
           <button
             onClick={onPlay}
-            className="rounded-lg bg-green-600 px-5 py-2 text-white hover:bg-green-700"
+            className="rounded-lg bg-violet-600 px-5 py-2 text-white hover:bg-violet-700"
           >
             ▶ Play
           </button>

@@ -4,9 +4,9 @@ import FeatureBadge from "./FeatureBadge";
 const HeroLeft = () => {
   return (
     <div>
-      <p className="mb-4 inline-block rounded-full bg-violet-100 px-4 py-2 text-sm font-medium text-violet-700">
+      {/* <p className="mb-4 inline-block rounded-full bg-violet-100 px-4 py-2 text-sm font-medium text-violet-700">
         Trusted Islamic Knowledge Platform
-      </p>
+      </p> */}
 
       <h1 className="text-5xl font-bold leading-tight text-slate-900">
         Seek Guidance.

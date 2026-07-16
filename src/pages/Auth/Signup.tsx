@@ -191,12 +191,12 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-white to-violet-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/30 mb-4">
-            <UserPlus className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-violet-100 dark:bg-violet-900/30 mb-4">
+            <UserPlus className="w-10 h-10 text-violet-600 dark:text-violet-400" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
             Create Account
@@ -208,10 +208,10 @@ const Signup: React.FC = () => {
 
         {/* Success Message */}
         {success && (
-          <div className="mb-6 p-4 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-700 rounded-xl flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+          <div className="mb-6 p-4 bg-violet-50 dark:bg-violet-900/30 border border-violet-200 dark:border-violet-700 rounded-xl flex items-start gap-3">
+            <CheckCircle className="w-5 h-5 text-violet-600 dark:text-violet-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-emerald-700 dark:text-emerald-300">
+              <p className="text-sm text-violet-700 dark:text-violet-300">
                 {success}
               </p>
             </div>
@@ -252,8 +252,8 @@ const Signup: React.FC = () => {
                   getFieldError("fullName")
                     ? "border-red-300 dark:border-red-700 focus:ring-red-500"
                     : isFieldValid("fullName")
-                      ? "border-emerald-300 dark:border-emerald-700 focus:ring-emerald-500"
-                      : "border-gray-300 dark:border-gray-600 focus:ring-emerald-500"
+                      ? "border-violet-300 dark:border-violet-700 focus:ring-violet-500"
+                      : "border-gray-300 dark:border-gray-600 focus:ring-violet-500"
                 } bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white`}
                 placeholder="Enter your full name"
               />
@@ -284,8 +284,8 @@ const Signup: React.FC = () => {
                   getFieldError("email")
                     ? "border-red-300 dark:border-red-700 focus:ring-red-500"
                     : isFieldValid("email")
-                      ? "border-emerald-300 dark:border-emerald-700 focus:ring-emerald-500"
-                      : "border-gray-300 dark:border-gray-600 focus:ring-emerald-500"
+                      ? "border-violet-300 dark:border-violet-700 focus:ring-violet-500"
+                      : "border-gray-300 dark:border-gray-600 focus:ring-violet-500"
                 } bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white`}
                 placeholder="your@email.com"
               />
@@ -311,7 +311,7 @@ const Signup: React.FC = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
+                className="w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
                 placeholder="+1 234 567 8900"
               />
             </div>
@@ -331,7 +331,7 @@ const Signup: React.FC = () => {
                 name="dateOfBirth"
                 value={formData.dateOfBirth}
                 onChange={handleChange}
-                className="w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
+                className="w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white transition-colors"
               />
             </div>
           </div>
@@ -355,8 +355,8 @@ const Signup: React.FC = () => {
                   getFieldError("password")
                     ? "border-red-300 dark:border-red-700 focus:ring-red-500"
                     : isFieldValid("password")
-                      ? "border-emerald-300 dark:border-emerald-700 focus:ring-emerald-500"
-                      : "border-gray-300 dark:border-gray-600 focus:ring-emerald-500"
+                      ? "border-violet-300 dark:border-violet-700 focus:ring-violet-500"
+                      : "border-gray-300 dark:border-gray-600 focus:ring-violet-500"
                 } bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white`}
                 placeholder="Create a strong password"
               />
@@ -380,7 +380,7 @@ const Signup: React.FC = () => {
             {touched.password &&
               !getFieldError("password") &&
               formData.password.length > 0 && (
-                <p className="mt-1 text-xs text-emerald-600 dark:text-emerald-400">
+                <p className="mt-1 text-xs text-violet-600 dark:text-violet-400">
                   ✓ Strong password
                 </p>
               )}
@@ -405,8 +405,8 @@ const Signup: React.FC = () => {
                   getFieldError("confirmPassword")
                     ? "border-red-300 dark:border-red-700 focus:ring-red-500"
                     : isFieldValid("confirmPassword")
-                      ? "border-emerald-300 dark:border-emerald-700 focus:ring-emerald-500"
-                      : "border-gray-300 dark:border-gray-600 focus:ring-emerald-500"
+                      ? "border-violet-300 dark:border-violet-700 focus:ring-violet-500"
+                      : "border-gray-300 dark:border-gray-600 focus:ring-violet-500"
                 } bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white`}
                 placeholder="Confirm your password"
               />
@@ -437,7 +437,7 @@ const Signup: React.FC = () => {
                 name="agreeToTerms"
                 checked={formData.agreeToTerms}
                 onChange={handleChange}
-                className="w-4 h-4 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-emerald-500 text-emerald-600 bg-gray-50 dark:bg-gray-700"
+                className="w-4 h-4 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-violet-500 text-violet-600 bg-gray-50 dark:bg-gray-700"
               />
             </div>
             <div className="ml-3 text-sm">
@@ -445,14 +445,14 @@ const Signup: React.FC = () => {
                 I agree to the{" "}
                 <a
                   href="#"
-                  className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium"
+                  className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium"
                 >
                   Terms of Service
                 </a>{" "}
                 and{" "}
                 <a
                   href="#"
-                  className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium"
+                  className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium"
                 >
                   Privacy Policy
                 </a>
@@ -464,7 +464,7 @@ const Signup: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20"
+            className="w-full py-3 px-4 bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-700 hover:to-violet-800 text-white font-medium rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 shadow-lg shadow-violet-600/20"
           >
             {loading ? (
               <>
@@ -485,7 +485,7 @@ const Signup: React.FC = () => {
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium"
+                className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium"
               >
                 Sign in here
               </Link>

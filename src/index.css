@@ -29,19 +29,19 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #10b981;
+    background: #ffeb54;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #059669;
+    background: #fff06c;
 }
 
 /* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-thumb {
-    background: #34d399;
+    background: #ffd117;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-    background: #6ee7b7;
+    background: #ffc72d;
 }

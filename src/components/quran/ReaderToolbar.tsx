@@ -34,7 +34,7 @@ const ReaderToolbar: React.FC<ReaderToolbarProps> = ({
         {/* Back Button */}
         <button
           onClick={onBack}
-          className="flex items-center text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+          className="flex items-center text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
         >
           <BookOpen className="w-5 h-5 mr-2" />
           <span className="font-medium">Back to Surahs</span>
@@ -69,7 +69,7 @@ const ReaderToolbar: React.FC<ReaderToolbarProps> = ({
             onClick={onTranslationToggle}
             className={`flex items-center px-3 py-1.5 rounded-lg transition-colors ${
               showTranslation
-                ? "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400"
+                ? "bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400"
                 : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
             }`}
           >
@@ -84,7 +84,7 @@ const ReaderToolbar: React.FC<ReaderToolbarProps> = ({
             <select
               value={translationLanguage}
               onChange={(e) => onLanguageChange(e.target.value)}
-              className="appearance-none bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1.5 pr-8 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="appearance-none bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1.5 pr-8 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
             >
               {languages.map((lang) => (
                 <option key={lang.code} value={lang.code}>

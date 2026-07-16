@@ -62,9 +62,9 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`transition-colors duration-200 hover:text-emerald-600 ${
+              className={`transition-colors duration-200 hover:text-violet-700 ${
                 isActive(link.path)
-                  ? "text-emerald-600 border-b-2 border-emerald-600 pb-1"
+                  ? "text-violet-700 border-b-2 border-violet-700 pb-1"
                   : ""
               }`}
             >
@@ -91,7 +91,7 @@ const Navbar = () => {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2 transition duration-200 hover:bg-gray-50"
               >
-                <User size={18} className="text-emerald-600" />
+                <User size={18} className="text-violet-600" />
                 <span className="font-medium text-gray-700">
                   {user?.fullName?.split(" ")[0] || "User"}
                 </span>
@@ -136,7 +136,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/signup"
-                className="rounded-xl bg-emerald-600 px-6 py-2 font-medium text-white transition duration-200 hover:bg-emerald-700"
+                className="rounded-xl bg-violet-600 px-6 py-2 font-medium text-white transition duration-200 hover:bg-violet-700"
               >
                 Sign Up
               </Link>
@@ -164,7 +164,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
                   isActive(link.path)
-                    ? "bg-emerald-50 text-emerald-600 font-medium"
+                    ? "bg-violet-50 text-violet-600 font-medium"
                     : "text-gray-700 hover:bg-gray-50"
                 }`}
               >
@@ -202,7 +202,7 @@ const Navbar = () => {
                   <Link
                     to="/signup"
                     onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2 text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                    className="flex items-center gap-3 px-4 py-2 text-violet-600 hover:bg-violet-50 rounded-lg transition-colors"
                   >
                     <UserPlus size={16} />
                     Sign Up
