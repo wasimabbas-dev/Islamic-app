@@ -15,7 +15,7 @@ import Hadith from "../../pages/Hadith/Hadith";
 import Scholars from "../../pages/Scholars/ScholarsDirectory";
 import Signup from "../../pages/Auth/Signup";
 // import Books from "../../pages/Books/Books";
-// import About from "../../pages/About/About";
+import About from "../../pages/About/About";
 // import NotFound from "../../pages/NotFound/NotFound";
 
 const AppRouter = () => {
@@ -46,7 +46,7 @@ const AppRouter = () => {
 
         {/* <Route path="/books" element={<Books />} /> */}
 
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<About />} />
 
         {/* <Route path="*" element={<NotFound />} /> */}
       </Route>
