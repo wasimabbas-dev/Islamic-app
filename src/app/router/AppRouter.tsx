@@ -11,7 +11,7 @@ import Questions from "../../pages/Questions/Questions";
 // import QuestionDetails from "../../pages/QuestionDetails/QuestionDetails";
 // import AskQuestion from "../../pages/AskQuestion/AskQuestion";
 import Quran from "../../pages/Quran/Quran";
-// import Hadith from "../../pages/Hadith/Hadith";
+import Hadith from "../../pages/Hadith/Hadith";
 import Scholars from "../../pages/Scholars/ScholarsDirectory";
 import Signup from "../../pages/Auth/Signup";
 // import Books from "../../pages/Books/Books";
@@ -40,7 +40,7 @@ const AppRouter = () => {
 
         <Route path="/quran" element={<Quran />} />
 
-        {/* <Route path="/hadith" element={<Hadith />} /> */}
+        <Route path="/hadith" element={<Hadith />} />
 
         <Route path="/scholars" element={<Scholars />} />
 
