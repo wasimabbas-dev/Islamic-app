@@ -1,6 +1,9 @@
+// src/constants/Navigation.ts
 export interface NavLinkItem {
   title: string;
   path: string;
+  dropdown?: boolean;
+  children?: NavLinkItem[];
 }
 
 export const navLinks: NavLinkItem[] = [
@@ -27,55 +30,28 @@ export const navLinks: NavLinkItem[] = [
   {
     title: "Knowledge",
     path: "/knowledge",
+    dropdown: true,
+    children: [
+      {
+        title: "📚 Books",
+        path: "/knowledge/books",
+      },
+      {
+        title: "📝 Articles",
+        path: "/knowledge/articles",
+      },
+      {
+        title: "⚖️ Fatwas",
+        path: "/knowledge/fatwas",
+      },
+      {
+        title: "👨‍🏫 Scholars",
+        path: "/knowledge/scholars",
+      },
+    ],
   },
   {
     title: "About Us",
     path: "/about",
   },
 ];
-
-// export const navLinks = [
-//   {
-//     title: "Home",
-//     path: "/",
-//   },
-//   {
-//     title: "Q&A",
-//     path: "/questions",
-//   },
-//   {
-//     title: "Scholar Directory",
-//     path: "/scholars",
-//   },
-//   {
-//     title: "Quran",
-//     path: "/quran",
-//   },
-//   {
-//     title: "Hadith",
-//     path: "/hadith",
-//   },
-//   {
-//     title: "Knowledge",
-//     path: "/knowledge",
-//     dropdown: true,
-//     children: [
-//       {
-//         title: "Books",
-//         path: "/books",
-//       },
-//       {
-//         title: "Articles",
-//         path: "/articles",
-//       },
-//       {
-//         title: "Fatwas",
-//         path: "/fatwas",
-//       },
-//     ],
-//   },
-//   {
-//     title: "About Us",
-//     path: "/about",
-//   },
-// ];
