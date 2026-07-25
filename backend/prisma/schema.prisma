@@ -1,0 +1,138 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  SCHOLAR
+  ADMIN
+}
+
+enum ScholarStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum QuestionStatus {
+  PENDING
+  ASSIGNED
+  ANSWERED
+  VERIFIED
+  PUBLISHED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  scholar    Scholar?   @relation("UserScholar")
+  questions  Question[]
+  bookmarks  Bookmark[]
+
+  @@map("users")
+}
+
+model Scholar {
+  id              String        @id @default(uuid())
+  userId          String        @unique
+  bio             String?
+  qualification   String?
+  experience      String?
+  sanadUrl        String?       // URL to uploaded sanad/certificate
+  additionalDocs  String?       // JSON string of additional document URLs
+  phoneNumber     String?
+  specialization  String?       // Area of expertise in Hanafi Fiqh
+  status          ScholarStatus @default(PENDING)
+  adminNotes      String?       // Admin can add notes when reviewing
+  reviewedBy      String?       // Admin ID who reviewed
+  reviewedAt      DateTime?     // When admin reviewed
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  user                 User                   @relation("UserScholar", fields: [userId], references: [id], onDelete: Cascade)
+  answers              Answer[]
+  scholarLoginAttempts ScholarLoginAttempt[]
+
+  @@map("scholars")
+}
+
+model ScholarLoginAttempt {
+  id        String   @id @default(uuid())
+  scholarId String
+  email     String
+  ipAddress String?  // Track IP for security
+  userAgent String?  // Track browser/device
+  attemptedAt DateTime @default(now())
+  
+  scholar Scholar @relation(fields: [scholarId], references: [id], onDelete: Cascade)
+  
+  @@map("scholar_login_attempts")
+}
+
+model Category {
+  id        String     @id @default(uuid())
+  name      String     @unique
+  slug      String     @unique
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  questions Question[]
+
+  @@map("categories")
+}
+
+model Question {
+  id         String         @id @default(uuid())
+  title      String
+  content    String
+  status     QuestionStatus @default(PENDING)
+  userId     String
+  categoryId String?
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category  Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  answers   Answer[]
+  bookmarks Bookmark[]
+
+  @@map("questions")
+}
+
+model Answer {
+  id         String   @id @default(uuid())
+  content    String
+  citations  String?
+  questionId String
+  scholarId  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  scholar  Scholar  @relation(fields: [scholarId], references: [id], onDelete: Cascade)
+
+  @@map("answers")
+}
+
+model Bookmark {
+  id         String   @id @default(uuid())
+  userId     String
+  questionId String
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
+  @@map("bookmarks")
+}

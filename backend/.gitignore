@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables (CRITICAL)
+.env
+.env.*
+!.env.example
+
+# Build files & TypeScript compilation
+dist/
+build/
+
+# Prisma generated outputs (if custom)
+prisma/generated/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
